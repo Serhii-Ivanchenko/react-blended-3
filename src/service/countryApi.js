@@ -1,11 +1,15 @@
 import axios from 'axios';
 import { transformCountriesData, transformCountryData } from 'helpers';
+const API_KEY = '1BFadn2ZiNk5cWyE506a9gIkyjg3BGzh6QWGRlYK';
 
-axios.defaults.baseURL = 'https://restcountries.com/v3.1';
+axios.defaults.baseURL = `https://countryapi.io/api/`;
+axios.defaults.params = {
+  apikey: API_KEY,
+};
 
 export const getCountries = async () => {
-  const { data } = await axios.get('/region/europe');
-  const countries = transformCountriesData(data);
+  const { data } = await axios.get(`/region/europe`);
+  const countries = transformCountriesData(Object.values(data));
 
   return countries;
 };

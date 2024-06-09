@@ -21,7 +21,7 @@ export const Home = () => {
     };
     fetchCountries();
   }, []);
-  console.log(countries);
+
   return (
     <Section>
       <Container>

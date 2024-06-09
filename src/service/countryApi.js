@@ -23,7 +23,7 @@ export const fetchCountry = async id => {
 
 export const fetchByRegion = async region => {
   const { data } = await axios.get(`/region/${region}`);
-  const countries = transformCountriesData(data);
+  const countries = transformCountriesData(Object.values(data));
 
   return countries;
 };
